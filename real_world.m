@@ -3,13 +3,13 @@
 % The current control system is a PID controller.
 %
 % Created by Kyle Naddeo, Mon Jan 3 11:19:49 EST 
-% Modified by YOUR NAME AND DATE
+% Modified by Gabe Donados
 
 %% Start fresh
 close all; clc; clear device;
 
 %% Connect to device
-% device = open serial communication in the proper COM port
+ device = serialport(COM7);%open serial communication in the proper COM port
 
 %% Parameters
 target      = 0.5;   % Desired height of the ball [m]
