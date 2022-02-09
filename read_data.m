@@ -12,11 +12,13 @@ function [distance,pwm,target,deadpan] = read_data(device)
 %  system
 %
 % Created by:  Kyle Naddeo 1/3/2022
-% Modified by: YOUR NAME and DATE
+% Modified by: Gabriel Donados
 
 %% Ask nicely for data
 % use the serialport() command options to write the correct letter to the
 % system (Hint: the letters are in the spec sheet)
+serialPort(device,19200);
+write("S");
 
 %% Read data
 % use the serialport() command options to read the response
