@@ -17,12 +17,12 @@ function [distance,pwm,target,deadpan] = read_data(device)
 %% Ask nicely for data
 % use the serialport() command options to write the correct letter to the
 % system (Hint: the letters are in the spec sheet)
-serialPort(device,19200);
-write("S");
+s = serialPort(device,19200);
+write(s, "S", "string");
 
 %% Read data
 % use the serialport() command options to read the response
-dataIn = read(device, 20, "String");
+dataIn = read(s, 20, "string");
 
 %% Translate
 % translate the response to 4 doubles using str2double() and
