@@ -27,10 +27,9 @@ dataIn = read(s, 20, "string");
 %% Translate
 % translate the response to 4 doubles using str2double() and
 % extractBetween() (Hint: the response is in the spec sheet)
- dataIn = str2double(dataIn);
- distance   = extractBetween(dataIn, 2, 5);
- manual_pwm = extractBetween(dataIn, 7, 10);
- target     = extractBetween(dataIn, 12, 15);
- deadpan    = extractBetween(dataIn, 17, 20);
+ distance   = str2double(extractBetween(dataIn, 2, 5));
+ manual_pwm = str2double(extractBetween(dataIn, 7, 10));
+ target     = str2double(extractBetween(dataIn, 12, 15));
+ deadpan    = str2double(extractBetween(dataIn, 17, 20));
 
 end
