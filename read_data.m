@@ -22,13 +22,14 @@ write("S");
 
 %% Read data
 % use the serialport() command options to read the response
+dataIn = read(device, 20, "String");
 
 %% Translate
 % translate the response to 4 doubles using str2double() and
 % extractBetween() (Hint: the response is in the spec sheet)
-% distance   = 
-% manual_pwm = 
-% target     = 
-% deadpan    = 
+ distance   = extractBetween(dataIn, 2, 5);
+ manual_pwm = extractBetween(dataIn, 7, 10);
+ target     = extractBetween(dataIn, 12, 15);
+ deadpan    = extractBetween(dataIn, 17, 20);
 
 end
