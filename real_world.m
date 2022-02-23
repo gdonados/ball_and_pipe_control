@@ -18,11 +18,18 @@ sample_rate = 0.25;  % Amount of time between controll actions [s]
 %% Give an initial burst to lift ball and keep in air
 set_pwm(device, 4000); % Initial burst to pick up ball
 while true
+     [distance,pwm,target,deadpan] = read_data(device);
+    disp(ir2y(distance));
     pause(1) % Wait 0.1 seconds
-    set_pwm(device, 2550); % Set to lesser value to level out somewhere in
-    % the pipe
-    pause(6)
-    set_pwm(device, 2555);
+    %set_pwm(device, 2550);
+    set_pwm(device, 500);
+    disp(ir2y(distance));
+    pause(1)
+    set_pwm(device, 4000);
+
+%     disp(distance);
+%     disp(ir2y(distance));
+%     pause(1);
 end
 %% Initialize variables
 % action      = ; % Same value of last set_pwm   
