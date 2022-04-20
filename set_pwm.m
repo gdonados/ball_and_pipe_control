@@ -18,8 +18,6 @@ elseif pwm_value < 0
 end
 
 %% Send Command
-
  action = strcat("P", num2str(pwm_value,'%04.f'))% string value of pwm_value, PXXXX
-% use the serialport() command options to change the PWM value to action
- write(device, action, "string");
+ write(device, action, "string"); %Write to serial port, formatted as 'string'
 end

@@ -1,6 +1,6 @@
 % A MATLAB script to control Rowans Systems & Control Floating Ball 
 % Apparatus designed by Mario Leone, Karl Dyer and Michelle Frolio. 
-% The current control system is a PID controller.
+% Designed to use a MPC controller
 %
 % Created by Kyle Naddeo, Mon Jan 3 11:19:49 EST 
 % Modified by Gabe Donados
@@ -14,44 +14,28 @@ close all; clc; clear device;
 %% Parameters
 target      = 0.5;   % Desired height of the ball [m]
 sample_rate = 0.25;  % Amount of time between controll actions [s]
+%% Create MPC Object for Designer
+g = zpk([],[0 -7.8067], 0.03887); %Transfer function
+gss = ss(g);    %Convert to state space
 
-%% Give an initial burst to lift ball and keep in air
-set_pwm(device, 4000); % Initial burst to pick up ball
-while true
-     [distance,pwm,target,deadpan] = read_data(device);
-    disp(ir2y(distance));
-    pause(1) % Wait 0.1 seconds
-    %set_pwm(device, 2550);
-    set_pwm(device, 500);
-    disp(ir2y(distance));
-    pause(1)
-    set_pwm(device, 4000);
+Ts = 0.1; %Sample time
+MV = struct('Min', 0, 'Max', 100); %duty cycle
+OV = struct('Min', 0, 'Max', 0.98); %Ball Height
 
-%     disp(distance);
-%     disp(ir2y(distance));
-%     pause(1);
-end
-%% Initialize variables
-% action      = ; % Same value of last set_pwm   
-error       = 0;
-error_sum   = 0;
+p = 20; %Prediction Horizon
+m = 3;  %Control Horizpn
+
+mpcobj = mpc(gss, Ts, p, m, [], MV); %Create MPC object to design
 
 %% Feedback loop
 while true
-    %% Read current height
+    %% Read current height, send height to MPC model
     [distance,pwm,target,deadpan] = read_data(device);
-    y = ir2y(distance); % Convert from IR reading to distance from bottom [m]
+    ball_height = ir2y(distance); % Convert from IR reading to distance from bottom [m]
     
-    %% Calculate errors for PID controller
-    error_prev = error;             % D
-    error      = target - y;        % P
-    error_sum  = error + error_sum; % I
+    %% Set PWM based on MPC output
+    set_pwm(duty_cycle);
     
-    %% Control
-    prev_action = action;
-    %action = % Come up with a scheme no answer is right but do something
-    % set_pwm(add_proper_args); % Implement action
-        
     % Wait for next sample
     pause(sample_rate)
 end
