@@ -14,6 +14,9 @@ close all; clc; clear device;
 %% Parameters
 target      = 0.5;   % Desired height of the ball [m]
 sample_rate = 0.25;  % Amount of time between controll actions [s]
+
+PWM_out = 0;
+ball_height = 0;
 %% Create MPC Object for Designer
 g = zpk([],[0 -7.8067], 0.03887); %Transfer function
 gss = ss(g);    %Convert to state space
@@ -34,7 +37,7 @@ while true
     ball_height = ir2y(distance); % Convert from IR reading to distance from bottom [m]
     
     %% Set PWM based on MPC output
-    set_pwm(duty_cycle);
+    set_pwm(PWM_out);    %Set PWM
     
     % Wait for next sample
     pause(sample_rate)
