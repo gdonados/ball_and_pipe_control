@@ -27,7 +27,9 @@
 
 <p align="center">
   <img src="images/figure1.PNG">
-  
+</p> 
+
+<p align="center">
   #### Figure 1: Simulated input, shown with duty cycle percentage
 </p>
 
