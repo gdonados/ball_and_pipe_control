@@ -30,7 +30,39 @@
 </p> 
 
 <p align="center">
-  #### Figure 1: Simulated input, shown with duty cycle percentage
+  Figure 1: Simulated input, shown with duty cycle percentage
+</p>
+
+<p align="center">
+  <img src="images/figure2.PNG">
+</p> 
+
+<p align="center">
+  Figure 2: Simulated Output (meters)
+</p>
+
+<p align="center">
+  <img src="images/figure3.PNG">
+</p> 
+
+<p align="center">
+  Figure 3: Simulink Simulation Model
+</p>
+
+<p align="center">
+  <img src="images/figure4.PNG">
+</p> 
+
+<p align="center">
+  Figure 4: Simulink MATLAB Connection
+</p>
+
+<p align="center">
+  <img src="images/figure5.PNG">
+</p> 
+
+<p align="center">
+  Figure 5: MPC Designer
 </p>
 
 ## References
