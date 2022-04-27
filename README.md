@@ -26,6 +26,8 @@
 ## Simulation Results
 
 ![Figure 1](images/figure1.PNG)
+#### Figure 1: Simulated input, shown with duty cycle percentage
+
 
 ## References
 https://www.mathworks.com/products/model-predictive-control.html 
