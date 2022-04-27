@@ -19,7 +19,7 @@
 ## Code Guide
   To use the code with the designed MPC controller is simple. The controller takes in a measured output and generates the next input to use, as described before. In this case, the BNP system parameters needed are ball height, meters, and a PWM value. To use with the MPC, the ball height acts as the input to the measured output (MO) of the MPC, which predicts the subsequent best PWM values, which are then input to the BNP system with set_pwm(). This is achieved with input/output blocks through Simulink, with which the model can interface with MATLAB code, after importing. 
 
-  The MPC block was designed with PWM constraints of 1000 to 4095, and ball height constraints of 0 to 1. The reference signal given to the system was the unit step, for simulation purposes. Additional constraints were added to reduce how large the jumps in PWM could be to coincide with the real-life limitations of the system. The PWM was only allowed to increase/decrease by a value of 100 at a time.
+  The MPC block was designed with PWM constraints of 1000 to 4095, and ball height constraints of 0 to 1. The reference signal given to the system was the unit step, for simulation purposes. The reference signal can be adjusted to accomodate different heights if need be. Additional constraints were added to reduce how large the jumps in PWM could be to coincide with the real-life limitations of the system. The PWM was only allowed to increase/decrease by a value of 100 at a time, to avoid unrealistic adjustements.
 
   To modify the MPC, the MPC designer tool in MATLAB can be accessed from the Simulink model by double-clicking the MPC block. Here, constraints can be edited and weights can be changed to increase/decrease the aggressiveness of the prediction model.
 
