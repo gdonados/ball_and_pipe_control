@@ -29,6 +29,7 @@ p = 20; %Prediction Horizon
 m = 3;  %Control Horizpn
 
 mpcobj = mpc(gss, Ts, p, m, [], MV); %Create MPC object to design
+open_system('Real_World_MPC_Interaction.slx');
 
 %% Feedback loop
 while true
