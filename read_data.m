@@ -15,17 +15,16 @@ function [distance,pwm,target,deadpan] = read_data(device)
 % Modified by: Gabriel Donados
 
 %% Ask nicely for data
-% use the serialport() command options to write the correct letter to the
-% system (Hint: the letters are in the spec sheet)
+% Write the read character to the BNP system
 write(device, "S", "string");
 
 %% Read data
-% use the serialport() command options to read the response
+% Read in the serial data
 dataIn = read(device, 20, "string");
 
 %% Translate
-% translate the response to 4 doubles using str2double() and
-% extractBetween() (Hint: the response is in the spec sheet)
+% Extract received data into correct variables
+% Bounds described in BNP user guide
  distance   = str2double(extractBetween(dataIn, 2, 5));
  pwm = str2double(extractBetween(dataIn, 7, 10));
  target     = str2double(extractBetween(dataIn, 12, 15));
