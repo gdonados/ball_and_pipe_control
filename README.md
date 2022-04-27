@@ -25,7 +25,7 @@
 
 ## Simulation Results
 
-![figure1](figure1.png)
+![My Image](figure1.png)
 
 ## References
 https://www.mathworks.com/products/model-predictive-control.html 
