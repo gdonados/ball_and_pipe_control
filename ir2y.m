@@ -18,12 +18,12 @@ function [y, pipe_percentage] = ir2y(ir)
  ir_reading = 0; %Variable to clip IR input if out of bounds
 
 %% Bound the IR reading and send error message 
-% (remeber the IR values are inverted ie small values == large height and large values == small height)
+% Smaller IR value = higher, larger = lower
 if(ir < ir_top)
- ir_reading = ir_top;
+ ir_reading = ir_top; % Clip value to minimum
  disp(Error: Ball reading too high);
 elseif (ir > ir_bottom)
- ir_reading = ir_bottom;
+ ir_reading = ir_bottom; % Clip value to maximum
  disp(Error: Ball reading too low);
 else
  ir_reading = ir;
