@@ -13,3 +13,11 @@ The MPC block was designed with PWM constraints of 1000 to 4095, and ball height
 To modify the MPC, the MPC designer tool in MATLAB can be accessed from the Simulink model by double-clicking the MPC block. Here, constraints can be edited and weights can be changed to increase/decrease the aggressiveness of the prediction model.
 
 ## Simulation Results
+
+## References
+https://www.mathworks.com/products/model-predictive-control.html 
+https://www.mathworks.com/products/simcontrol.html 
+https://en.wikipedia.org/wiki/Model_predictive_control
+https://www.youtube.com/watch?v=YwodGM2eoy4
+https://web.stanford.edu/class/archive/ee/ee392m/ee392m.1056/Lecture14_MPC.pdf
+https://www.do-mpc.com/en/v4.1.1/theory_mpc.html
