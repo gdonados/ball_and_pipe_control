@@ -26,7 +26,7 @@
 ## Simulation Results
 
 <p align="center">
-  src=images/figure1.PNG
+  <img src="images/figure1.PNG">
   #### Figure 1: Simulated input, shown with duty cycle percentage
 
   
